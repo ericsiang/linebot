@@ -26,4 +26,5 @@ $db_config=[
 ];
 ```  
 ## 2.記得要改成你要接收的網址    
+## set Webhook URL
 ![image](https://github.com/ericsiang/linebot/blob/master/image/2020-02-15_180807.jpg)
