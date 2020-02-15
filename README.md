@@ -6,7 +6,7 @@ Message API文件 : <https://developers.line.biz/en/reference/messaging-api/>
 
 
 ## 1.這裡記得修改成你Line開發者帳號內的資訊，及DB連線設定  
-## set your Line developer account info and DB Connection  
+## Set your Line developer account info and DB connection  
 ![image](https://github.com/ericsiang/linebot/blob/master/image/2020-02-15_181229.jpg)
 ![image](https://github.com/ericsiang/linebot/blob/master/image/2020-02-15_181305.jpg)
 
@@ -26,5 +26,5 @@ $db_config=[
 ];
 ```  
 ## 2.記得要改成你要接收的網址    
-## set Webhook URL
+## Set webhook url
 ![image](https://github.com/ericsiang/linebot/blob/master/image/2020-02-15_180807.jpg)
