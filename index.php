@@ -6,7 +6,31 @@ include('config.php');
 
 $action=isset($_GET['action']) &&trim($_GET['action']) ? $_GET['action'] : '' ;
 
+$url=$_SERVER['HTTP_HOST'].'/index.php';
 
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="<?php $url; ?>" method="GET">
+    類型:<input type="radio" name="action" value="single_push"/>單發
+    <input type="radio" name="action" value="broadcast"/>群發
+    <br>
+    發送文字:<input type="text" name="text" value="text"/><br>
+    <input type="submit" value="send"/>
+    </form>
+</body>
+</html>
+
+
+<?
 
 function PostJsonCurl($ChannelAccessToken,$url,$postData){
         // 傳送json訊息
@@ -238,7 +262,7 @@ if($action=='single_push'){
     if(!empty($_GET['user_id'])){
         $user_id=$_GET['user_id'];
     }else{
-        $user_id='U7ef1b40ca2dbe10ff5996864b4ad9b00!';
+        $user_id='U7ef1b40ca2dbe10ff5996864b4ad9b00';
     }
 
     $Payload = [
