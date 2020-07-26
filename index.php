@@ -1,6 +1,5 @@
 <?php
 
-
 include('class_pdo.php');
 include('config.php');
 
@@ -166,7 +165,7 @@ if(!empty($_SERVER['HTTP_X_LINE_SIGNATURE'])){
                     'messages' => [
                         [
                             'type' => 'video', // 訊息類型 (影片)
-                            'originalContentUrl' => 'https://www.youtube.com/watch?v=4KlWYbmhOps', // 回復影片
+                            'originalContentUrl' => 'https://sideproject-linechatbot.ericsiang.club/video/chang.mp4', // 回復影片
                             'previewImageUrl' => 'https://img.ltn.com.tw/Upload/partner/page/2019/09/14/190914-4886-01-WvNZA.jpg' // 回復的預覽圖片
                         ]
                     ]
