@@ -6,31 +6,7 @@ include('config.php');
 
 $action=isset($_GET['action']) &&trim($_GET['action']) ? $_GET['action'] : '' ;
 
-$url=$_SERVER['HTTP_HOST'].'/index.php';
-
-
-?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form action="<?php $url; ?>" method="GET">
-    類型:<input type="radio" name="action" value="single_push"/>單發
-    <input type="radio" name="action" value="broadcast"/>群發
-    <br>
-    發送文字:<input type="text" name="text" value="text"/><br>
-    <input type="submit" value="send"/>
-    </form>
-</body>
-</html>
-
-
-<?
+$post_url='https://'.$_SERVER['HTTP_HOST'].'/index.php';
 
 function PostJsonCurl($ChannelAccessToken,$url,$postData){
         // 傳送json訊息
@@ -47,7 +23,7 @@ function PostJsonCurl($ChannelAccessToken,$url,$postData){
             'Authorization: Bearer ' . $ChannelAccessToken
         ]);
         $Result = curl_exec($ch);
-        var_dump($Result);
+        //var_dump($Result);
         curl_close($ch);
 }
 
@@ -283,3 +259,22 @@ if($action=='single_push'){
 //GetJsonCurl($ChannelAccessToken,'https://api.line.me/v2/bot/profile/U7ef1b40ca2dbe10ff5996864b4ad9b00');
 
 ?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="<?php echo  $post_url; ?>" method="get">
+        <input type="radio" name="action" id="single_push" value="single_push">單發
+        <input type="radio" name="action" id="broadcast" value="broadcast">群發
+        <br>
+        <input type="text" name="text" id="text" >
+        <input type="submit"  value="send">
+    </form>
+</body>
+</html>
