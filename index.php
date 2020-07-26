@@ -110,6 +110,22 @@ if(!empty($_SERVER['HTTP_X_LINE_SIGNATURE'])){
         {   
             
             if(strtolower($action_type)=='image' || $action_text=='圖片' || $action_text=='柴犬'){
+                $image_url_arr=[
+                    'https://www.bomb01.com/upload/news/original/584985332f9f30dc0358deb1d86c2a5d.jpg',
+                    'https://img.ltn.com.tw/Upload/partner/page/2019/09/14/190914-4886-01-WvNZA.jpg',
+                    'https://i1.kknews.cc/SIG=2ru26a9/ctp-vzntr/15301131549198023s8q5n0.jpg',
+                    'https://cdn2-digiphoto.techbang.com/system/images/124905/medium/45dbba2f981c35f27610a6191036309d.jpg?1548392392',
+                    'https://cdn2-digiphoto.techbang.com/system/images/124904/medium/1a7d862bb16aa53fecb82448d2181da6.jpg?1548392391',
+                    'https://cdn1-digiphoto.techbang.com/system/images/124900/medium/a1740120003e749928689edd861f9789.jpg?1548392387',
+                ];
+                
+                if($action_text=='柴犬'){
+                    $rand=mt_rand(0,2);
+                }else{
+                    $rand=mt_rand(0,6);
+                }
+               
+
                 //回傳圖片
                 $Payload = [
                     'replyToken' => $Event['replyToken'],
@@ -117,9 +133,9 @@ if(!empty($_SERVER['HTTP_X_LINE_SIGNATURE'])){
                         [
                             'type' => 'image', // 訊息類型 (圖片)
                              //回覆圖片的URL
-                            'originalContentUrl' => 'https://img.ltn.com.tw/Upload/partner/page/2019/09/14/190914-4886-01-WvNZA.jpg',
+                            'originalContentUrl' => $image_url_arr[$rand],
                             //回覆預覽圖片的URL
-                            'previewImageUrl' => 'https://img.ltn.com.tw/Upload/partner/page/2019/09/14/190914-4886-01-WvNZA.jpg',
+                            'previewImageUrl' => $image_url_arr[$rand],
                         ]
                     ]
                 ];
